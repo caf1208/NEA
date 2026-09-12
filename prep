@@ -1,1 +1,79 @@
 prep
+3 months till first draft submission with code expected to be finished
+
+spend frees learning
+
+1.JSON and APIs  
+  JSON Structures
+  requests
+  GET requests
+  API responses
+  extracting nested data
+  error handling    -    e.g coventry doesnt have lots of prem data, first time in the prem in either a very long time or ever
+  GOAL:
+    be able to call full results  -  homeTeam FTHG - FTAG awayTeam consistently
+
+2.Pandas and data cleaning
+  Pandas dataframes 
+  filtering rows
+  columns
+  groupby - command in pandas
+  means/averages
+  handling missing data
+  cleaning and transforming API data
+  GOAL:
+    be able to print a table of
+      Home        Away        HG        AG
+    and then results to come with that
+
+3.START CODING   -----  KEEP DYNAMIC NOT STATIC
+  make the league average goals -> make each teams attacking and defensive strengths 
+  make the league average home goals
+  make the league average away goals 
+  create lambda of teams
+
+4.Learn Poisson 
+  what does a poisson model represent ---- go back to design section afterward and change if needs be
+  learn lambda --- you know what it means but learn more about it and how it can be expanded upon like how to use lots of variables how to weigh your variables incase I want to expand afterward if I have the time or want it for betting
+  learn the formula and understand why it does what it does if i can 
+  math.exp() will be used a lot
+  GOAL:
+    make my own poisson distribution 
+  ----
+    lambda(xg) = whatever 
+    0 goals = a%
+    1 goal = b%
+    2 goals = c%
+    .....
+
+5.Grid
+  recap 2D lists
+  nested loops
+  combining probabilities --- just multiplication
+  finding maximum values -- highest probabilities
+  formatting terminal output -- instead of printing lists like [a,b,c,d,,e,f,g] it will print as grid and percentages
+  GOAL: CODING
+    code the grid and the most likely outcome stuff
+
+6. Learn Monte Carlo
+  Random sampling
+  NumPy
+  np.random.poisson()
+  simulation
+  counting outcomes
+  turing frequencies -> probabilities
+  GOAL:CODING
+    code the Monte Carlo Poisson simulation and then output the results
+-------  COMPARE AND MAKE SURE ITS DOCUMENTED ------
+
+7. TESTING
+  SEE IF IT IS ACCURATE AGAINST MATCHES
+
+----- if you have the time, add other investigations to it such as 
+          more simulations = better results??
+          1 season vs 3 vs 5 ??? ALREADING DOING THAT DEFINITELY
+          Does the home/away average goals make it better or worse????
+
+8. text interface
+  selecting teams
+  make sure the program ends like in the skeleton code, present menu and give them the option to end the program should they wish to
