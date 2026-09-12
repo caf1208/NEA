@@ -57,8 +57,8 @@ spend frees learning
 
 6. Learn Monte Carlo
   Random sampling
-  NumPy
-  np.random.poisson()
+  NumPy  -->>> learn:::   what is it, why am i using it, what np.random means
+  np.random.poisson() --- >>> .poisson is a function I am importing FROM numPy
   simulation
   counting outcomes
   turing frequencies -> probabilities
