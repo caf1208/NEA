@@ -1,0 +1,849 @@
+GPT SUGGESTIONS ON HOW TO GO ABOUT IT AFTER MRS WHITESIDE COMMENT ABOUT SQL
+
+I would learn things in the same order that you'll actually build the program. Every lesson should end with code that becomes part of your NEA, so you're never writing "practice code" that gets thrown away.
+
+Stage 0 - Understand the entire project
+Before writing anything, understand the architecture.
+
+CSV
+ │
+ ▼
+SQLite Database
+ │
+ ▼
+Database Queries
+ │
+ ▼
+Statistics Calculator
+ │
+ ▼
+Poisson Model
+ │
+ ▼
+Monte Carlo Simulator
+ │
+ ▼
+Prediction Engine
+ │
+ ▼
+Text Menu Interface
+
+Notice that every stage depends on the previous one.
+
+Stage 1 - SQL and Databases (Most Important)
+Since you're now required to use SQLite, this becomes the foundation of everything.
+
+Learn
+Why databases exist
+Tables
+Rows
+Columns
+Primary Keys
+Foreign Keys
+Relationships
+SQL queries
+Learn:
+
+CREATE TABLE
+
+INSERT
+
+SELECT
+
+WHERE
+
+ORDER BY
+
+GROUP BY
+
+AVG()
+
+COUNT()
+
+SUM()
+
+JOIN
+
+Learn Database Normalisation
+Specifically
+
+First Normal Form
+No repeated columns.
+
+Bad
+
+Team
+Player1
+Player2
+Player3
+
+Good
+
+Player
+Team
+
+Second Normal Form
+Separate repeated information.
+
+Instead of
+
+MatchID
+Home Team
+Away Team
+Home Stadium
+Away Stadium
+
+Split into
+
+Teams
+Matches
+
+Third Normal Form
+No unnecessary duplicated data.
+
+Instead of storing
+
+Liverpool
+
+Manager = Slot
+Manager DOB
+Manager Nationality
+
+inside every match,
+
+store it once.
+
+Goal
+Be able to design your own football database.
+
+Stage 2 - Python + SQLite
+Now learn how Python talks to databases.
+
+Import
+
+sqlite3
+
+Learn
+
+connect()
+
+cursor()
+
+execute()
+
+fetchone()
+
+fetchall()
+
+commit()
+
+close()
+
+Goal
+
+Be able to do
+
+Open database
+
+↓
+
+Run SQL query
+
+↓
+
+Get results back into Python
+
+↓
+
+Loop through them
+
+Mini project
+
+SELECT *
+
+FROM Matches
+
+WHERE HomeTeam='Liverpool'
+
+Print every Liverpool home game.
+
+Stage 3 - Import CSV into SQLite
+Instead of reading CSV every time,
+
+read it once.
+
+CSV
+
+↓
+
+Python
+
+↓
+
+Database
+
+Learn
+
+csv module
+
+INSERT statements
+
+Checking duplicates
+
+Transactions
+
+Goal
+
+Run one Python program
+
+that creates the whole database.
+
+Stage 4 - Object Oriented Programming
+Only now would I learn OOP.
+
+Because now objects actually make sense.
+
+Instead of
+
+database.execute(...)
+database.execute(...)
+database.execute(...)
+
+Create classes.
+
+For example
+
+Database
+
+Responsible for
+
+opening database
+queries
+inserting data
+closing connection
+Team
+
+Responsible for
+
+team name
+
+attacking strength
+
+defensive strength
+
+averages
+
+Match
+
+Stores
+
+home team
+
+away team
+
+home goals
+
+away goals
+
+PoissonModel
+
+Responsible for
+
+calculate lambda
+
+calculate probabilities
+
+predict score
+
+MonteCarlo
+
+Responsible for
+
+run simulations
+
+count wins
+
+count draws
+
+count losses
+
+Menu
+
+Responsible for
+
+display menu
+
+receive input
+
+call functions
+
+This is proper encapsulation.
+
+Learn
+classes
+objects
+attributes
+methods
+constructors
+__init__()
+
+self
+composition
+Don't worry about inheritance unless it naturally fits your design—composition (objects using other objects) is often clearer for this kind of project.
+
+Goal
+
+Split your project into multiple classes.
+
+Stage 5 - SQL Statistics
+Now use SQL to calculate things.
+
+Examples
+
+League average home goals
+
+SELECT AVG(HomeGoals)
+
+FROM Matches;
+
+Average away goals
+
+Liverpool home average
+
+Liverpool away average
+
+Goals conceded
+
+Number of matches
+
+Goal
+
+Retrieve every statistic from SQL instead of manually looping through Python lists whenever practical.
+
+Stage 6 - Python Maths Refresher
+Now revisit maths.
+
+Learn
+
+factorials
+
+n!
+
+powers
+
+x^n
+
+e
+
+math.exp()
+
+floating point numbers
+
+Goal
+
+Be comfortable implementing equations directly.
+
+Stage 7 - Build Poisson Yourself
+Instead of NumPy
+
+write
+
+factorial()
+
+
+yourself.
+
+Then
+
+poisson_probability()
+
+
+using
+
+P
+(
+X
+=
+k
+)
+=
+e
+−
+λ
+λ
+k
+k
+!
+
+Understand
+
+lambda
+
+expected goals
+
+probability mass function
+
+Goal
+
+Produce
+
+Goals
+
+Probability
+
+0
+
+...
+
+1
+
+...
+
+2
+
+...
+
+3
+
+...
+
+4
+
+...
+
+5
+
+...
+
+for one team.
+
+Stage 8 - Build the Score Grid
+Learn
+
+nested loops
+
+2D lists
+
+matrix thinking
+
+multiplying independent probabilities
+
+Goal
+
+Produce
+
+      Away
+
+      0     1     2
+
+0
+
+1
+
+2
+
+3
+
+4
+
+Find
+
+Highest probability score
+
+Home win
+
+Draw
+
+Away win
+
+Stage 9 - Make Your Own Random Number Generator Usage
+You don't need to write a random number generator algorithm from scratch unless your teacher explicitly requires that.
+
+Instead of
+
+np.random.poisson()
+
+use
+
+random.random()
+
+and your own sampling method.
+
+Learn
+
+Uniform random numbers
+
+0 <= x < 1
+
+Cumulative probability
+
+Weighted sampling
+
+Example
+
+0 goals
+
+0.11
+
+1 goal
+
+0.24
+
+2 goals
+
+0.28
+
+3 goals
+
+0.18
+
+...
+
+Convert into cumulative probabilities
+
+0.11
+
+0.35
+
+0.63
+
+0.81
+
+...
+
+Generate
+
+0.52
+
+Find where it lands.
+
+That becomes the sampled score.
+
+This is an excellent Group A approach because it demonstrates that you understand the mechanics instead of relying on a library.
+
+Stage 10 - Monte Carlo
+Now repeat
+
+sample home goals
+
+sample away goals
+
+record winner
+
+10,000 times.
+
+Store
+
+Home Wins
+
+Draws
+
+Away Wins
+
+Most common score
+
+Goal
+
+Compare
+
+Poisson analytical prediction
+
+vs
+
+Monte Carlo simulation.
+
+Stage 11 - Evaluation Experiments
+These become excellent evaluation sections.
+
+Investigate
+
+1 season vs 3 seasons
+3 seasons vs 5 seasons
+Different maximum goals (e.g. 5 vs 8 vs 10)
+100 simulations vs 1,000 vs 10,000
+Home/away split vs overall averages
+Recently promoted clubs with limited data
+Newly promoted teams (handling sparse historical data)
+Runtime comparison
+Prediction accuracy
+These give you genuine evidence to discuss in your evaluation.
+
+Stage 12 - User Interface
+Finally
+
+Build
+
+======================
+Premier Predictor
+======================
+
+1 View Teams
+
+2 Predict Match
+
+3 Run Monte Carlo
+
+4 Exit
+
+Use
+
+while True
+
+menus
+
+validation
+
+error handling
+
+functions
+
+Stage 13 - Testing
+Test everything separately.
+
+Database
+
+↓
+
+Statistics
+
+↓
+
+Lambda
+
+↓
+
+Poisson
+
+↓
+
+Grid
+
+↓
+
+Simulation
+
+↓
+
+Menu
+
+Record
+
+Expected Result
+
+Actual Result
+
+Pass/Fail
+
+Include edge cases such as teams with no historical data, invalid menu input, and missing database records.
+
+Final Project Structure
+By the end, aim for a structure like this:
+
+prem_predictor/
+│
+├── main.py
+├── menu.py
+├── database.py
+├── import_csv.py
+├── statistics.py
+├── poisson.py
+├── montecarlo.py
+├── team.py
+├── match.py
+├── utilities.py
+├── football.db
+├── matches.csv
+└── tests.py
+
+Why this is Group A standard
+This progression mirrors how a professional developer would approach the project:
+
+Data management: Import CSV into a normalised SQLite database rather than repeatedly reading a CSV file.
+Software design: Use OOP with clear responsibilities (database access, statistics, modelling, simulation, interface).
+Algorithm implementation: Implement the Poisson probability calculation yourself, including the factorial and probability formula.
+Simulation: Build Monte Carlo sampling using Python's random module and cumulative probabilities instead of numpy.random.poisson().
+Evidence and evaluation: Design experiments to compare approaches (different data windows, simulation counts, and model variations) and analyse their impact.
+Testing: Test each component independently before testing the complete system.
+This approach demonstrates database design, object-oriented programming, algorithmic thinking, mathematical modelling, and systematic testing—all of which are strong indicators of a high-grade A-level Computer Science NEA.
+
+
+
+You said:
+
+I need these to be separate files?
+
+ChatGPT said:
+Not necessarily. For an A-level NEA, there's a balance between good software engineering and keeping the project understandable. Too many files can actually make the project harder to follow.
+
+I'd recommend something like 6–8 Python files, which is a sensible size for a Group A project.
+
+prem_predictor/
+│
+├── main.py            # Starts the program and displays the menu
+├── database.py        # SQLite connection and SQL queries
+├── import_csv.py      # Imports CSV into the database (only run when updating data)
+├── statistics.py      # Calculates averages, attack/defence strengths, lambda
+├── poisson.py         # Poisson formula and score probability grid
+├── montecarlo.py      # Monte Carlo simulation
+├── models.py          # Team and Match classes
+├── football.db
+└── matches.csv
+
+What each file would do
+main.py
+This is the only file the user runs.
+
+It might look conceptually like:
+
+from database import Database
+from statistics import Statistics
+from poisson import PoissonModel
+from montecarlo import MonteCarlo
+
+It creates the objects and controls the menu.
+
+database.py
+Contains one class:
+
+class Database:
+
+Methods such as
+
+connect()
+
+close()
+
+get_teams()
+
+get_matches()
+
+get_home_average()
+
+get_team_stats()
+
+Every SQL query stays here.
+
+import_csv.py
+This is only used when you obtain new football data.
+
+It
+
+opens the CSV
+validates it
+inserts records into SQLite
+You might only run this once each season.
+
+statistics.py
+Contains things like
+
+class Statistics:
+
+Methods
+
+league_home_average()
+
+league_away_average()
+
+team_attack_strength()
+
+team_defence_strength()
+
+calculate_lambda()
+
+This file should not contain SQL directly if possible—it should ask the Database class for the data it needs.
+
+poisson.py
+Contains
+
+class PoissonModel:
+
+Methods
+
+factorial()
+
+poisson_probability()
+
+goal_distribution()
+
+score_grid()
+
+most_likely_score()
+
+This is where all the maths lives.
+
+montecarlo.py
+Contains
+
+class MonteCarlo:
+
+Methods
+
+random_goal()
+
+run_simulation()
+
+count_results()
+
+No SQL here either.
+
+models.py
+Simple classes.
+
+class Team:
+
+class Match:
+
+These mainly store data and make your code easier to read.
+
+Instead of writing
+
+team_name
+team_attack
+team_defence
+
+everywhere, you can have
+
+team.attack_strength
+
+which is much cleaner.
+
+Why not put everything in one file?
+Imagine main.py grows to around 1,500 lines.
+
+Finding one function becomes difficult.
+
+Instead, you know immediately where to look:
+
+SQL problem → database.py
+Maths problem → poisson.py
+Simulation problem → montecarlo.py
+Menu problem → main.py
+That's exactly why larger programs are split into modules.
+
+One thing I'd change from my previous suggestion
+I wouldn't make a separate team.py and match.py.
+
+I'd combine them into one models.py.
+
+For an A-level NEA, having
+
+Team
+Match
+in the same file is perfectly reasonable.
+
+My recommendation
+I'd aim for this structure:
+
+prem_predictor/
+│
+├── main.py
+├── database.py
+├── import_csv.py
+├── statistics.py
+├── poisson.py
+├── montecarlo.py
+├── models.py
+├── football.db
+└── matches.csv
+
+This is modular enough to demonstrate good design without becoming over-engineered. It also makes it much easier to explain your architecture in your design section, since each file has a single, clear responsibility.
