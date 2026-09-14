@@ -1,5 +1,14 @@
 prep
 3 months till first draft submission with code expected to be finished
+IF I AM TOLD CSV IS ALLOWED CHOOSE THAT BUT I NEED TO:
+  Make my own Poisson Formula as a function and just call that.   -   shows understanding of formula
+  Make my own code for the randomiser rather than just use ".random"    -   shows understanding of the formula
+                                        ALL FOR COMPLEXITY + MARKS
+  Create own sorting algorithms for creating team data like sorting into alph order 
+  Create own search algorithm NOT LINEAR, create binary search to find teams when user selects or calls team
+
+now need to do sql stuff so not sure
+
 
 spend frees learning
 
