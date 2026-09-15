@@ -2,16 +2,20 @@ import csv
 file = open("2526.csv","r",newline="")
 reader = csv.reader(file)
 next(reader)
-goalsArsenal=0
+gScoredArsenal=0
 countArsenal=0
+gConcArsenal=0
 for row in reader:
     homeGoals = float(row[5])
     awayGoals = float(row[6])
     if row[3] == "Arsenal":
-        goalsArsenal+=homeGoals
+        gScoredArsenal+=homeGoals
+        gConcArsenal+=awayGoals
         countArsenal+=1
     elif row[4] == "Arsenal":
-        goalsArsenal+=awayGoals
+        gScoredArsenal+=awayGoals
         countArsenal+=1
-print("goals per game:", round(goalsArsenal/countArsenal,2))
-#### calculates arsenals attack strength which is part of the poisson formula
+        gConcArsenal+=homeGoals
+print("goals for per game:", round(gScoredArsenal/countArsenal,2))
+print("goals against per game:", round(gConcArsenal/countArsenal,2))
+### attack strength and def strength
