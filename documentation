@@ -1,4 +1,5 @@
 CHECK YOU ARE DOING DOCUMENTATION FINE ON PROGRESS CHECK DAY
 
 Currently only working with 1 of the season files so that I can make sure I am fully competent with the CSVs before trying to link multiple 
-together. Currently able to read from CSV and work out total goals for a team.
+together. Currently able to read from CSV and work out total goals for a team + work out the averages but this is all without the use of 
+SQLite, I will learn that before doing anything formula related 
