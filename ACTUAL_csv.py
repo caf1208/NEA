@@ -80,6 +80,7 @@ file.seek(0)
 reader=csv.reader(file)
 next(reader)
 calculateTeamStrengths(chooseTeam(teams),reader)
-### this i did for fun and a basis for OOP when i begin to do that
+##I dont know if anything changed but this is a definite working solution to find out the values, I may use may not use depends how 
+#quickly I finish the more basic NEA and then I can make it more complicated
 
         
