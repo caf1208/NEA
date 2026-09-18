@@ -20,7 +20,7 @@ SELECT COUNT(*) FROM matches WHERE homeTeam="Arsenal"
 """)
 homeGames=cur.fetchone()[0]
 cur.execute("""
-SELECT COUNT(*) FROM matches WHERE awayTEAM="Arsenal"
+SELECT COUNT(*) FROM matches WHERE awayTeam="Arsenal"
 """)
 awayGames=cur.fetchone()[0]
 cur.execute("""
